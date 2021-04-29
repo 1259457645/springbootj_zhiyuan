@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.text.DateFormat;
+import java.util.Locale;
 
 @Data
 @AllArgsConstructor
@@ -14,10 +15,10 @@ public class Active {
     String title;
     String desc;
     String content;
-    DateFormat entrystart;
-    DateFormat entryend;
-    DateFormat start;
-    DateFormat end;
+    DateFormat entrystart = DateFormat.getDateInstance(DateFormat.SHORT, Locale.CHINA);
+    DateFormat entryend = DateFormat.getDateInstance(DateFormat.SHORT, Locale.CHINA);
+    DateFormat start = DateFormat.getDateInstance(DateFormat.SHORT, Locale.CHINA);
+    DateFormat end = DateFormat.getDateInstance(DateFormat.SHORT, Locale.CHINA);
     String range;
     String poster;
     int applicantsalimit;

@@ -18,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/v1")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class UserApi {
     @Autowired
     UserService userService;
@@ -42,6 +43,7 @@ public class UserApi {
                 return jsonObject;
             }else {
                 String token = tokenService.getToken(userForBase);
+                jsonObject.put("code","200");
                 jsonObject.put("token", token);
                 jsonObject.put("data", userForBase);
                 return jsonObject;
@@ -123,6 +125,24 @@ public class UserApi {
         String encodePwd = BCrypt.hashpw(user.getPasswordtoStr(), BCrypt.gensalt()); // 加密
         user.setPassword(encodePwd);
         int res=userService.updatePw(id,user.getPasswordtoStr());
+        if(res>0){
+            jsonObject.put("code","200");
+            jsonObject.put("message","修改成功");
+        }
+        else {
+            jsonObject.put("code","500");
+            jsonObject.put("message","删除失败");
+        }
+        return jsonObject;
+    }
+    @UserLoginToken
+    @PostMapping("/user/change")
+    public Object change_u(@RequestBody User user){
+        JSONObject jsonObject=new JSONObject();
+        int res=0;
+        if(user.getRole()==null){
+            user.setRole("3");
+        }
         if(res>0){
             jsonObject.put("code","200");
             jsonObject.put("message","修改成功");

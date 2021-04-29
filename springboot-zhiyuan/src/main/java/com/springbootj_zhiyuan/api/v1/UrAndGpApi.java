@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/UrAndGp")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class UrAndGpApi {
     @Autowired
     UrAndGpService urAndGpService;

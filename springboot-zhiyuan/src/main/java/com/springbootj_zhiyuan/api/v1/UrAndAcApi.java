@@ -9,16 +9,14 @@ import com.springbootj_zhiyuan.service.ActiveService;
 import com.springbootj_zhiyuan.service.UrAndAcService;
 import com.springbootj_zhiyuan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class UrAndAcApi {
     @Autowired
     UrAndAcService urAndAcService;
@@ -96,5 +94,5 @@ public class UrAndAcApi {
         }
         return  jsonObject;
     }
-    
+
 }

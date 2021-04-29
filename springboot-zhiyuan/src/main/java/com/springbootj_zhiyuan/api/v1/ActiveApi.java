@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/active")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class ActiveApi {
     @Autowired
     ActiveService activeService;
