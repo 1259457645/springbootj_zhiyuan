@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springbootj_zhiyuan.mapper.UserMapper">
+    <select id="findByAccount" resultType="com.springbootj_zhiyuan.entity.User">
+      SELECT * FROM User
+      where
+      account=#{account}
+    </select>
+    <select id="findUserById" resultType="com.springbootj_zhiyuan.entity.User">
+        SELECT * FROM User
+      where
+      id=#{id}
+    </select>
+    <select id="findUserByAccount" resultType="com.springbootj_zhiyuan.entity.User">
+        SELECT * FROM User
+      where
+      account=#{account}
+    </select>
+    <insert id="insertUser" >
+        INSERT INTO User (account,username,password) values (#{account},#{username,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR})
+    </insert>
+    <delete id="deleteUser" >
+        delete from User where id=#{id}
+    </delete>
+    <update id="updatePw">
+        update User set password=#{password} where id=#{id}
+    </update>
+    <select id="findbyPage" resultType="com.springbootj_zhiyuan.entity.User">
+        SELECT * FROM User
+    </select>
+</mapper>

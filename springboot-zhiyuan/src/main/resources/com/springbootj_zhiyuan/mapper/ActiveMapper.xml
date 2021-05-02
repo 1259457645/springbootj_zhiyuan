@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springbootj_zhiyuan.mapper.ActiveMapper">
+    <select id="findByTitle" resultType="com.springbootj_zhiyuan.entity.Active">
+        select * from Active
+        where title=#{title}
+    </select>
+    <select id="findByid" resultType="com.springbootj_zhiyuan.entity.Active">
+        select * from Active
+        where activityid=#{activityid}
+    </select>
+    <select id="findByPage" resultType="com.springbootj_zhiyuan.entity.Active">
+        select * from Active
+    </select>
+    <insert id="addActive">
+        insert into Active (title,`desc`,content,entrystart,entryend,start,`end`,`range`,poster,
+        applicantsalimit,material,vtime)
+        values (#{title},#{desc},#{content},#{entrystart},#{entryend},#{start},#{end},#{range},
+        #{poster},#{applicantsalimit},#{material},#{vtime})
+    </insert>
+    <update id="updateActive">
+        update Active set title=#{title},`desc`=#{desc},content=#{content},entrystart=#{entrystart},
+        entryend=#{entryend},start=#{start},`end`=#{end},`range`=#{range},poster=#{poster},
+        applicantsalimit=#{applicantsalimit},material=#{material},vtime=#{vtime}
+        where activityid=#{activityid}
+    </update>
+    <delete id="deleteActive">
+        delete from Active where activityid=#{activityid}
+    </delete>
+</mapper>

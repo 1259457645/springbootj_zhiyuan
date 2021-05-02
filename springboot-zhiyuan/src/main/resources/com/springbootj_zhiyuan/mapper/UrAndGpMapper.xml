@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springbootj_zhiyuan.mapper.UrAndGpMapper">
+    <select id="findByAccount" resultType="com.springbootj_zhiyuan.entity.UrAndGp">
+        SELECT * FROM UrAndGp
+      where
+      account=#{account}
+    </select>
+    <insert id="addUrAndGp" >
+        INSERT INTO UrAndGp (account,groupid) values (#{account},#{groupid})
+    </insert>
+    <delete id="deleteUrAndGp">
+        delete from UrAndGp where groupid=#{groupid} and account=#{account}
+    </delete>
+    <delete id="deleteByGp">
+        delete from UrAndGp where groupid=#{groupid}
+    </delete>
+    <delete id="deleteByAc">
+        delete from UrAndGp where account=#{account}
+    </delete>
+</mapper>
