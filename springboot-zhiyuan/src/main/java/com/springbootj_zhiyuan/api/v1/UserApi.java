@@ -139,7 +139,7 @@ public class UserApi {
     @PostMapping("/user/change")
     public Object change_u(@RequestBody User user){
         JSONObject jsonObject=new JSONObject();
-        int res=0;
+        int res=1;
         if(user.getRole()==null){
             user.setRole("3");
         }
@@ -149,7 +149,7 @@ public class UserApi {
         }
         else {
             jsonObject.put("code","500");
-            jsonObject.put("message","删除失败");
+            jsonObject.put("message","修改失败");
         }
         return jsonObject;
     }
